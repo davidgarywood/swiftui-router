@@ -1,0 +1,16 @@
+{
+	Kind = "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind";
+	Platforms = (
+		"com.apple.platform.iphoneos",
+	);
+	Options = (
+		{
+			Description = "The name of the module to create";
+			Identifier = productName;
+			Name = Module;
+			Required = YES;
+			Type = text;
+			Default = Module;
+		},
+	);
+}
