@@ -8,25 +8,20 @@
 import Foundation
 import SwiftUI
 
-protocol HelpRouterDelegate: AnyObject {
-}
-
 class HelpRouter: Router {
     
     // MARK: - Published vars
     // Put published vars here
     
     // MARK: - Private vars
-    weak private var delegate: HelpRouterDelegate?
     
     // MARK: - Internal vars
     var services: Services
         
     // MARK: - Initialization
 
-    init(services: Services, delegate: HelpRouterDelegate? = nil) {
+    init(services: Services) {
         self.services = services
-        self.delegate = delegate
     }
     
     // MARK: - Methods

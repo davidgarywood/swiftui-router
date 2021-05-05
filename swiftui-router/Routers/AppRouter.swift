@@ -23,11 +23,11 @@ class AppRouter: Router {
     private var anyCancellables = Set<AnyCancellable>()
     
     lazy private var loginRouter: LoginRouter = {
-        return LoginRouter(services: self.services, delegate: self)
+        return LoginRouter(services: self.services)
     }()
 
     lazy private var tabRouter: TabRouter = {
-        return TabRouter(services: self.services, delegate: self)
+        return TabRouter(services: self.services)
     }()
     
     // MARK: - Internal vars
@@ -71,12 +71,3 @@ class AppRouter: Router {
     }
     
 }
-
-extension AppRouter: LoginRouterDelegate {
-    
-}
-
-extension AppRouter: TabRouterDelegate {
-    
-}
-
