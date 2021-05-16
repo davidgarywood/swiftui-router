@@ -8,23 +8,19 @@
 import Foundation
 import SwiftUI
 
-protocol TabRouterDelegate: AnyObject {
-}
-
 class TabRouter: Router {
     
     // MARK: - Published vars
     // Put published vars here
     
     // MARK: - Private vars
-    weak private var delegate: TabRouterDelegate?
     
     lazy private var accountRouter: AccountRouter = {
-        return AccountRouter(services: self.services, delegate: self)
+        return AccountRouter(services: self.services)
     }()
 
     lazy private var onboardingRouter: HelpRouter = {
-        return HelpRouter(services: self.services, delegate: self)
+        return HelpRouter(services: self.services)
     }()
     
     // MARK: - Internal vars
@@ -32,9 +28,8 @@ class TabRouter: Router {
         
     // MARK: - Initialization
 
-    init(services: Services, delegate: TabRouterDelegate? = nil) {
+    init(services: Services) {
         self.services = services
-        self.delegate = delegate
     }
     
     // MARK: - Methods
@@ -68,13 +63,5 @@ class TabRouter: Router {
 }
 
 extension TabRouter: HomeScreenRouter {
-    
-}
-
-extension TabRouter: AccountRouterDelegate {
-    
-}
-
-extension TabRouter: HelpRouterDelegate {
     
 }

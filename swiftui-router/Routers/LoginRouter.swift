@@ -15,19 +15,15 @@ import SwiftUI
 // This is a 6 of one, half a dozen of the other choice. I like the locality here of the Router having responsibility for the sheet,
 // Incase we ever want to show other sheets, then their toggling/creation etc would all be in this one spot.
 
-protocol LoginRouterDelegate: AnyObject {
-}
-
 class LoginRouter: Router {
     
     // MARK: - Published vars
     // Put published vars here
     
     // MARK: - Private vars
-    weak private var delegate: LoginRouterDelegate?
     
     lazy private var onboardingRouter: HelpRouter = {
-        return HelpRouter(services: self.services, delegate: self)
+        return HelpRouter(services: self.services)
     }()
     
     // MARK: - Internal vars
@@ -35,9 +31,8 @@ class LoginRouter: Router {
         
     // MARK: - Initialization
 
-    init(services: Services, delegate: LoginRouterDelegate? = nil) {
+    init(services: Services) {
         self.services = services
-        self.delegate = delegate
     }
     
     // MARK: - Methods
@@ -78,9 +73,5 @@ struct LoginView: View {
 }
 
 extension LoginRouter: LoginScreenViewRouter {
-    
-}
-
-extension LoginRouter: HelpRouterDelegate {
     
 }
