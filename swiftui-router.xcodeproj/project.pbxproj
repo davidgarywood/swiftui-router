@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5527F255263CE9C70099E9DE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5527F254263CE9C70099E9DE /* README.md */; };
 		553979BA263CCFD000120EE5 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553979B9263CCFD000120EE5 /* AppRouter.swift */; };
-		553979BD263CD06400120EE5 /* DefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553979BC263CD06400120EE5 /* DefaultsManager.swift */; };
 		553979C9263CD88300120EE5 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553979C8263CD88300120EE5 /* LoginRouter.swift */; };
 		553979CC263CD8AA00120EE5 /* TabRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553979CB263CD8AA00120EE5 /* TabRouter.swift */; };
 		553979D4263CD92000120EE5 /* HelpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553979D3263CD92000120EE5 /* HelpRouter.swift */; };
@@ -30,12 +29,12 @@
 		55E50C0F26334CFF00EA63FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55E50C0E26334CFF00EA63FD /* Assets.xcassets */; };
 		55E50C1226334CFF00EA63FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55E50C1126334CFF00EA63FD /* Preview Assets.xcassets */; };
 		55E50C25263354EC00EA63FD /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E50C24263354EC00EA63FD /* Services.swift */; };
+		C651E75A2654A2B900F11013 /* DefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651E7592654A2B900F11013 /* DefaultsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5527F254263CE9C70099E9DE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		553979B9263CCFD000120EE5 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
-		553979BC263CD06400120EE5 /* DefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DefaultsManager.swift; path = ../../../../../../Users/dave/Downloads/DefaultsManager.swift; sourceTree = "<group>"; };
 		553979C8263CD88300120EE5 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		553979CB263CD8AA00120EE5 /* TabRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabRouter.swift; sourceTree = "<group>"; };
 		553979D3263CD92000120EE5 /* HelpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HelpRouter.swift; path = ../../HelpRouter.swift; sourceTree = "<group>"; };
@@ -58,6 +57,7 @@
 		55E50C1126334CFF00EA63FD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		55E50C1326334CFF00EA63FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55E50C24263354EC00EA63FD /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		C651E7592654A2B900F11013 /* DefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +151,7 @@
 			children = (
 				55E50C24263354EC00EA63FD /* Services.swift */,
 				55A2FB73263CCA5400AEC5FF /* LoginManager.swift */,
-				553979BC263CD06400120EE5 /* DefaultsManager.swift */,
+				C651E7592654A2B900F11013 /* DefaultsManager.swift */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -286,10 +286,10 @@
 				55A2FB74263CCA5400AEC5FF /* LoginManager.swift in Sources */,
 				553979CC263CD8AA00120EE5 /* TabRouter.swift in Sources */,
 				553979BA263CCFD000120EE5 /* AppRouter.swift in Sources */,
+				C651E75A2654A2B900F11013 /* DefaultsManager.swift in Sources */,
 				55D86E102636729600AE01AD /* ViewModel.swift in Sources */,
 				55A2FB79263CCCA800AEC5FF /* LoginScreen.swift in Sources */,
 				55397A12263CE3F000120EE5 /* ProfileScreenViewModel.swift in Sources */,
-				553979BD263CD06400120EE5 /* DefaultsManager.swift in Sources */,
 				553979F7263CDD9A00120EE5 /* AccountScreen.swift in Sources */,
 				55397A09263CE2E800120EE5 /* HomeScreen.swift in Sources */,
 				55397A00263CE1CD00120EE5 /* ActivityIndicator.swift in Sources */,
