@@ -2,6 +2,7 @@
 	Kind = "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind";
 	Platforms = (
 		"com.apple.platform.iphoneos",
+		"com.apple.platform.macosx",
 	);
 	Options = (
 		{
