@@ -32,10 +32,10 @@ struct AccountScreen: View {
         }
         .padding()
     }
-    
-    struct AccountScreenPreviews: PreviewProvider {
-        static var previews: some View {
-            AccountScreen(router: AccountRouter(services: MockServices()), viewModel: AccountScreenViewModel(services: MockServices()))
-        }
+}
+
+struct AccountScreenPreviews: PreviewProvider {
+    static var previews: some View {
+        AccountScreen(router: AccountRouter(services: MockServices()), viewModel: AccountScreenViewModel(services: MockServices()))
     }
 }
