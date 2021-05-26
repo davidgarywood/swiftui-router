@@ -4,6 +4,8 @@ This represents a view of a Router concept for SwiftUI, with view models.
 
 This is created by David Gary Wood. You can contact David on twitter, at [https://twitter.com/davidgarywood](https://twitter.com/davidgarywood)
 
+A detailed blog post about this pattern, is available here: [https://davidgarywood.com/writing/swiftui-router-pattern](https://davidgarywood.com/writing/swiftui-router-pattern)
+
 # Design Pattern Overview
 
 ## Requirements
