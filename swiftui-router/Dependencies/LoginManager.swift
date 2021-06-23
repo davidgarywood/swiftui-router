@@ -37,12 +37,12 @@ class AppLoginManager: LoginManager {
     
     public func logIn() {
         // Simulate talking to an API with a 1 second delay, for the demo
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
-            self.state.loggedIn = true
-            self.state.userName = "David"
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) { [weak self] in
+            self?.state.loggedIn = true
+            self?.state.userName = "David"
             
-            self.defaultsManager.setDefault(.loggedIn, value: true)
-            self.defaultsManager.setDefault(.userName, value: "David")
+            self?.defaultsManager.setDefault(.loggedIn, value: true)
+            self?.defaultsManager.setDefault(.userName, value: "David")
         }
     }
     

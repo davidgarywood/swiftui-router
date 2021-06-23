@@ -10,29 +10,17 @@ import SwiftUI
 
 class AccountRouter: Router {
     
-    // MARK: - Published vars
-    // Put published vars here
-    
     // MARK: - Private vars
-    
-    // MARK: - Internal vars
-    var services: Services
+    private var services: Services
         
     // MARK: - Initialization
-
     init(services: Services) {
         self.services = services
     }
     
     // MARK: - Methods
-    
-    func rootView() -> some View {
-        // Add your content here
-        NavigationView {
-            self.accountView()
-                .navigationTitle("Account")
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
+    @ViewBuilder func rootView() -> some View {
+        AccountRouterView(router: self)
     }
     
     func accountView() -> some View {
@@ -41,6 +29,19 @@ class AccountRouter: Router {
         return view
     }
     
+}
+
+struct AccountRouterView: View {
+    var router: AccountRouter
+    
+    var body: some View {        
+        NavigationView {
+            self.router.accountView()
+                .navigationTitle("Account")
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+
+    }
 }
 
 extension AccountRouter: AccountScreenRouter {

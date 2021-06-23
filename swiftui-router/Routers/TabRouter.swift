@@ -9,12 +9,10 @@ import Foundation
 import SwiftUI
 
 class TabRouter: Router {
-    
-    // MARK: - Published vars
-    // Put published vars here
-    
-    // MARK: - Private vars
-    
+        
+    // MARK: - Private vars    
+    private var services: Services
+
     lazy private var accountRouter: AccountRouter = {
         return AccountRouter(services: self.services)
     }()
@@ -22,44 +20,54 @@ class TabRouter: Router {
     lazy private var onboardingRouter: HelpRouter = {
         return HelpRouter(services: self.services)
     }()
-    
-    // MARK: - Internal vars
-    var services: Services
         
     // MARK: - Initialization
-
     init(services: Services) {
         self.services = services
     }
     
     // MARK: - Methods
+    @ViewBuilder func rootView() -> some View {
+        TabRouterView(router: self)
+    }
     
-    func rootView() -> some View {
-        // Add your content here
+    @ViewBuilder func home() -> some View {
+        let viewModel = HomeScreenViewModel(services: self.services)
+        let view = HomeScreen(router: self, viewModel: viewModel)
+        view
+    }
+    
+    @ViewBuilder func onboarding() -> some View {
+        self.onboardingRouter.rootView()
+    }
+
+    @ViewBuilder func account() -> some View {
+        self.accountRouter.rootView()
+    }
+
+}
+
+struct TabRouterView: View {
+    @StateObject var router: TabRouter
+    
+    var body: some View {
         TabView {
-            self.onboardingRouter.rootView()
+            self.router.onboarding()
                 .tabItem {
                     Label("Help", systemImage: "questionmark.circle.fill")
                 }
 
-            self.homeScreen()
+            self.router.home()
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
             
-            self.accountRouter.rootView()
+            self.router.account()
                 .tabItem {
                     Label("Account", systemImage: "person.fill")
-                }            
+                }
         }
     }
-    
-    func homeScreen() -> some View {
-        let viewModel = HomeScreenViewModel(services: self.services)
-        let view = HomeScreen(router: self, viewModel: viewModel)
-        return view
-    }
-    
 }
 
 extension TabRouter: HomeScreenRouter {

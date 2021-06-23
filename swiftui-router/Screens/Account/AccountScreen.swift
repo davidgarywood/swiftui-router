@@ -14,7 +14,7 @@ protocol AccountScreenRouter: AnyObject {
 struct AccountScreen: View {
     @State var router: AccountScreenRouter
     
-    @ObservedObject var viewModel: AccountScreenViewModel
+    @StateObject var viewModel: AccountScreenViewModel
     
     var body: some View {
         VStack {

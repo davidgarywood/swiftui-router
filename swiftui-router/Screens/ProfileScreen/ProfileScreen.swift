@@ -13,7 +13,7 @@ protocol ProfileScreenRouter: AnyObject {
 struct ProfileScreen: View {
     @State var router: ProfileScreenRouter?
     
-    @ObservedObject var viewModel: ProfileScreenViewModel
+    @StateObject var viewModel: ProfileScreenViewModel
     
     var body: some View {
         VStack {
