@@ -11,9 +11,8 @@ protocol LoginScreenViewRouter: AnyObject {
 }
 
 struct LoginScreen: View {
-    @State var router: LoginScreenViewRouter?
-    
-    @ObservedObject var viewModel: LoginScreenViewModel
+    @State var router: LoginScreenViewRouter?    
+    @StateObject var viewModel: LoginScreenViewModel
     
     var body: some View {
         ZStack {

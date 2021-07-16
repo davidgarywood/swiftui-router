@@ -13,7 +13,7 @@ protocol HomeScreenRouter: AnyObject {
 struct HomeScreen: View {
     @State var router: HomeScreenRouter?
     
-    @ObservedObject var viewModel: HomeScreenViewModel
+    @StateObject var viewModel: HomeScreenViewModel
     
     var body: some View {
         Text("Home")

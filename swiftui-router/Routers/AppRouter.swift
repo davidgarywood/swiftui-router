@@ -20,6 +20,8 @@ class AppRouter: Router {
     @Published var screen: AppRouterScreen = .login
     
     // MARK: - Private vars
+    private var services: Services
+
     private var anyCancellables = Set<AnyCancellable>()
     
     lazy private var loginRouter: LoginRouter = {
@@ -30,11 +32,7 @@ class AppRouter: Router {
         return TabRouter(services: self.services)
     }()
     
-    // MARK: - Internal vars
-    var services: Services
-    
     // MARK: - Initialization
-    
     init(services: Services) {
         self.services = services
         
@@ -52,22 +50,29 @@ class AppRouter: Router {
     }
     
     // MARK: - Methods
-    
     @ViewBuilder func rootView() -> some View {
-        switch self.screen {
-        case .login:
-            self.loginScreen()
-        case .tab:
-            self.tabScreen()
-        }
+        AppRouterView(router: self)
     }
     
-    public func loginScreen() -> some View {
+    @ViewBuilder func loginScreen() -> some View {
         self.loginRouter.rootView()
     }
     
-    public func tabScreen() -> some View {
+    @ViewBuilder func tabScreen() -> some View {
         self.tabRouter.rootView()
     }
     
+}
+
+struct AppRouterView: View {
+    @StateObject var router: AppRouter
+    
+    var body: some View {
+        switch self.router.screen {
+        case .login:
+            self.router.loginScreen()
+        case .tab:
+            self.router.tabScreen()
+        }
+    }
 }
