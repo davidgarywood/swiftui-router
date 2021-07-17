@@ -9,5 +9,5 @@ open class BaseViewModel<S> {
     public init(services: S) {
         self.services = services
     }
-    
+        
 }

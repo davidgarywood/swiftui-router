@@ -16,17 +16,21 @@ class AccountRouter: Router {
     // MARK: - Initialization
     init(services: Services) {
         self.services = services
+        Logger.print("init:\(#file)")
     }
     
+    deinit {
+        Logger.print("deinit:\(#file)")
+    }
     // MARK: - Methods
     @ViewBuilder func rootView() -> some View {
         AccountRouterView(router: self)
     }
     
-    func accountView() -> some View {
+    @ViewBuilder func accountView() -> some View {
         let viewModel = AccountScreenViewModel(services: self.services)
         let view = AccountScreen(router: self, viewModel: viewModel)
-        return view
+        view
     }
     
 }
@@ -45,10 +49,10 @@ struct AccountRouterView: View {
 }
 
 extension AccountRouter: AccountScreenRouter {
-    func accountScreenProfileScreen() -> ProfileScreen {
+    @ViewBuilder func accountScreenProfileScreen() -> ProfileScreen {
         let viewModel = ProfileScreenViewModel(services: self.services)
         let view = ProfileScreen(router: self, viewModel: viewModel)
-        return view
+        view
     }
 }
 

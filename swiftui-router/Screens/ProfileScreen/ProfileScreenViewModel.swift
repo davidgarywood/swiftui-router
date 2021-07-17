@@ -13,7 +13,16 @@ class ProfileScreenViewModel: BaseViewModel<Services>, ObservableObject {
     
     override init(services: Services) {
         super.init(services: services)
+        Logger.print("init:\(#file)")
         
+        self.setup()
+    }
+    
+    deinit {
+        Logger.print("deinit:\(#file)")
+    }
+
+    private func setup() {
         self.userName = self.services.loginManager.state.userName ?? "Unknown"
     }
 }

@@ -35,8 +35,13 @@ class AppRouter: Router {
     // MARK: - Initialization
     init(services: Services) {
         self.services = services
-        
+        Logger.print("init:\(#file)")
+
         self.setBindings()
+    }
+    
+    deinit {
+        Logger.print("deinit:\(#file)")
     }
     
     func setBindings() {
