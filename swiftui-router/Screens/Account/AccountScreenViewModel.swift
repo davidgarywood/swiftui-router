@@ -10,6 +10,15 @@ import Combine
 
 class AccountScreenViewModel: BaseViewModel<Services>, ObservableObject {
     
+    override init(services: Services) {
+        super.init(services: services)
+        Logger.print("init:\(#file)")
+    }
+    
+    deinit {
+        Logger.print("deinit:\(#file)")
+    }
+    
     func logout() {
         self.services.loginManager.logOut()
     }

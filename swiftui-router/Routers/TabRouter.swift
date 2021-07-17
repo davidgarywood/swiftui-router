@@ -24,6 +24,11 @@ class TabRouter: Router {
     // MARK: - Initialization
     init(services: Services) {
         self.services = services
+        Logger.print("init:\(#file)")
+    }
+    
+    deinit {
+        Logger.print("deinit:\(#file)")
     }
     
     // MARK: - Methods

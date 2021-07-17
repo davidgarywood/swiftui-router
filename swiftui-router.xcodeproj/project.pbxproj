@@ -15,7 +15,6 @@
 		553979DB263CDC1500120EE5 /* AccountRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553979DA263CDC1500120EE5 /* AccountRouter.swift */; };
 		553979F7263CDD9A00120EE5 /* AccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553979F5263CDD9A00120EE5 /* AccountScreen.swift */; };
 		553979F8263CDD9A00120EE5 /* AccountScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553979F6263CDD9A00120EE5 /* AccountScreenViewModel.swift */; };
-		55397A00263CE1CD00120EE5 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553979FF263CE1CD00120EE5 /* ActivityIndicator.swift */; };
 		55397A09263CE2E800120EE5 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55397A07263CE2E800120EE5 /* HomeScreen.swift */; };
 		55397A0A263CE2E800120EE5 /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55397A08263CE2E800120EE5 /* HomeScreenViewModel.swift */; };
 		55397A11263CE3F000120EE5 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55397A0F263CE3F000120EE5 /* ProfileScreen.swift */; };
@@ -30,6 +29,7 @@
 		55E50C1226334CFF00EA63FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55E50C1126334CFF00EA63FD /* Preview Assets.xcassets */; };
 		55E50C25263354EC00EA63FD /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E50C24263354EC00EA63FD /* Services.swift */; };
 		C651E75A2654A2B900F11013 /* DefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651E7592654A2B900F11013 /* DefaultsManager.swift */; };
+		C685806C26A25EA700471492 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C685806B26A25EA700471492 /* Logger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +41,6 @@
 		553979DA263CDC1500120EE5 /* AccountRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRouter.swift; sourceTree = "<group>"; };
 		553979F5263CDD9A00120EE5 /* AccountScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountScreen.swift; sourceTree = "<group>"; };
 		553979F6263CDD9A00120EE5 /* AccountScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountScreenViewModel.swift; sourceTree = "<group>"; };
-		553979FF263CE1CD00120EE5 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		55397A07263CE2E800120EE5 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		55397A08263CE2E800120EE5 /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 		55397A0F263CE3F000120EE5 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
@@ -58,6 +57,7 @@
 		55E50C1326334CFF00EA63FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55E50C24263354EC00EA63FD /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		C651E7592654A2B900F11013 /* DefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsManager.swift; sourceTree = "<group>"; };
+		C685806B26A25EA700471492 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,22 +87,6 @@
 				55A2FB78263CCCA800AEC5FF /* LoginScreenViewModel.swift */,
 			);
 			path = Login;
-			sourceTree = "<group>";
-		};
-		55397A02263CE1D000120EE5 /* Global UI */ = {
-			isa = PBXGroup;
-			children = (
-				55397A04263CE1D500120EE5 /* Views */,
-			);
-			path = "Global UI";
-			sourceTree = "<group>";
-		};
-		55397A04263CE1D500120EE5 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				553979FF263CE1CD00120EE5 /* ActivityIndicator.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		55397A0C263CE2EB00120EE5 /* Home */ = {
@@ -159,6 +143,7 @@
 		55D86E12263672A000AE01AD /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				C685806B26A25EA700471492 /* Logger.swift */,
 				5567AD702634FAC300003FD6 /* Router.swift */,
 				55D86E0F2636729600AE01AD /* ViewModel.swift */,
 			);
@@ -186,7 +171,6 @@
 			isa = PBXGroup;
 			children = (
 				55E50C0A26334CFE00EA63FD /* RouterTestApp.swift */,
-				55397A02263CE1D000120EE5 /* Global UI */,
 				55BE62B9263C8FDD0081E1DA /* Dependencies */,
 				55D86E12263672A000AE01AD /* Base */,
 				55BE62B6263C8FB60081E1DA /* Routers */,
@@ -291,8 +275,8 @@
 				55A2FB79263CCCA800AEC5FF /* LoginScreen.swift in Sources */,
 				55397A12263CE3F000120EE5 /* ProfileScreenViewModel.swift in Sources */,
 				553979F7263CDD9A00120EE5 /* AccountScreen.swift in Sources */,
+				C685806C26A25EA700471492 /* Logger.swift in Sources */,
 				55397A09263CE2E800120EE5 /* HomeScreen.swift in Sources */,
-				55397A00263CE1CD00120EE5 /* ActivityIndicator.swift in Sources */,
 				553979F8263CDD9A00120EE5 /* AccountScreenViewModel.swift in Sources */,
 				553979C9263CD88300120EE5 /* LoginRouter.swift in Sources */,
 				55A2FB7A263CCCA800AEC5FF /* LoginScreenViewModel.swift in Sources */,

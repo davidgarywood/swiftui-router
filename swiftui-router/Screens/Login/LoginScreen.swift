@@ -27,7 +27,7 @@ struct LoginScreen: View {
             }
             
             if self.viewModel.loggingIn {
-                ActivityIndicator(shouldAnimate: self.$viewModel.loggingIn)
+                ProgressView()
             }
         }
         .padding()
