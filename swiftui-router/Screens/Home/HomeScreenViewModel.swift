@@ -18,5 +18,4 @@ class HomeScreenViewModel: BaseViewModel<Services>, ObservableObject {
     deinit {
         Logger.print("deinit:\(#file)")
     }
-
 }

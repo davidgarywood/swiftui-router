@@ -12,7 +12,6 @@ protocol ProfileScreenRouter: AnyObject {
 
 struct ProfileScreen: View {
     @State var router: ProfileScreenRouter?
-    
     @StateObject var viewModel: ProfileScreenViewModel
     
     var body: some View {
@@ -23,8 +22,7 @@ struct ProfileScreen: View {
             }
             Spacer()
         }
-        .padding()
-        
+        .padding()        
     }
 }
 

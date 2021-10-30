@@ -10,7 +10,6 @@
 			Name = Module;
 			Required = YES;
 			Type = text;
-			Default = Module;
 		},
 	);
 }

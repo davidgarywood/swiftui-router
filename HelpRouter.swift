@@ -8,8 +8,7 @@
 import Foundation
 import SwiftUI
 
-class HelpRouter: Router {
-    
+class HelpRouter: ObservableObject {    
     // MARK: - Private vars
     private var services: Services
         
@@ -24,18 +23,13 @@ class HelpRouter: Router {
     }
     
     // MARK: - Methods    
-    @ViewBuilder func rootView() -> some View {
-        HelpRouterView(router: self)
-    }
-    
     @ViewBuilder func helpContent(text: String) -> some View {
         Text(text)
     }
         
     internal func presentedOnboarding() {
         self.services.defaultsManager.setDefault(.hasPresentedOnboarding, value: true)
-    }
-    
+    }    
 }
 
 struct HelpRouterView: View {

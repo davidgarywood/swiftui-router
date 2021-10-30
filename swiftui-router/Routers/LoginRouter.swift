@@ -8,7 +8,9 @@
 import Foundation
 import SwiftUI
 
-class LoginRouter: Router {
+class LoginRouter: ObservableObject {
+    // MARK: - Published vars
+    @Published var showOnboarding: Bool = false
     
     // MARK: - Private vars
     lazy private var onboardingRouter: HelpRouter = {
@@ -19,8 +21,10 @@ class LoginRouter: Router {
         
     // MARK: - Initialization
     init(services: Services) {
-        self.services = services
         Logger.print("init:\(#file)")
+
+        self.services = services
+        self.showOnboarding = !self.services.defaultsManager.getDefault(.hasPresentedOnboarding)
     }
     
     deinit {
@@ -28,37 +32,27 @@ class LoginRouter: Router {
     }
     
     // MARK: - Methods
-    @ViewBuilder func rootView() -> some View {
-        let showOnboarding = !self.services.defaultsManager.getDefault(.hasPresentedOnboarding)
-        LoginRouterView(router: self, showOnboarding: showOnboarding)
-    }
-    
     @ViewBuilder func loginScreen() -> some View {
-        let viewModel = LoginScreenViewModel(services: self.services)
-        let view = LoginScreen(router: self, viewModel: viewModel)
-        view
+        LoginScreen(router: self, viewModel: LoginScreenViewModel(services: self.services))
     }
     
     @ViewBuilder func onboardingScreen() -> some View {
-        self.onboardingRouter.rootView()
+        HelpRouterView(router: HelpRouter(services: self.services))
     }
-    
 }
 
 struct LoginRouterView: View {
     @StateObject var router: LoginRouter
-    @State var showOnboarding: Bool
     
     var body: some View {
         NavigationView {
             self.router.loginScreen()
-                .sheet(isPresented: $showOnboarding) {
+                .sheet(isPresented: self.$router.showOnboarding) {
                     self.router.onboardingScreen()
                 }
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
-    
 }
 
 extension LoginRouter: LoginScreenViewRouter {

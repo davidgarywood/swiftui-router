@@ -9,11 +9,10 @@ import SwiftUI
 
 @main
 struct RouterTestApp: App {
-    @StateObject var appRouter = AppRouter(services: AppServices())
     
     var body: some Scene {
         WindowGroup {
-            self.appRouter.rootView()
+            AppRouterView(router: AppRouter(services: AppServices()))
         }
     }
 }

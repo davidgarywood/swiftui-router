@@ -11,8 +11,7 @@ protocol HomeScreenRouter: AnyObject {
 }
 
 struct HomeScreen: View {
-    @State var router: HomeScreenRouter?
-    
+    @State var router: HomeScreenRouter?    
     @StateObject var viewModel: HomeScreenViewModel
     
     var body: some View {

@@ -14,8 +14,7 @@ enum AppRouterScreen {
     case tab
 }
 
-class AppRouter: Router {
-    
+class AppRouter: ObservableObject {    
     // MARK: - Published vars
     @Published var screen: AppRouterScreen = .login
     
@@ -55,18 +54,13 @@ class AppRouter: Router {
     }
     
     // MARK: - Methods
-    @ViewBuilder func rootView() -> some View {
-        AppRouterView(router: self)
-    }
-    
     @ViewBuilder func loginScreen() -> some View {
-        self.loginRouter.rootView()
+        LoginRouterView(router: LoginRouter(services: self.services))
     }
     
     @ViewBuilder func tabScreen() -> some View {
-        self.tabRouter.rootView()
+        TabRouterView(router: TabRouter(services: self.services))
     }
-    
 }
 
 struct AppRouterView: View {
