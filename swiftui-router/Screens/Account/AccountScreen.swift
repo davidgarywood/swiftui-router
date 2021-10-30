@@ -12,8 +12,7 @@ protocol AccountScreenRouter: AnyObject {
 }
 
 struct AccountScreen: View {
-    @State var router: AccountScreenRouter
-    
+    @State var router: AccountScreenRouter    
     @StateObject var viewModel: AccountScreenViewModel
     
     var body: some View {

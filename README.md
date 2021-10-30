@@ -18,9 +18,13 @@ A detailed blog post about this pattern, is available here: [https://davidgarywo
 
 ## Pattern
 
-We start with a Router. It has responsibility for holding the application's dependencies, and creating the very first view and view models.
+We start with a Router. It has responsibility for holding the application's dependencies, and creating screens and their view models. Each Router has a corresponding view.
 
-A router has a very simple protocol. It has to implement a function called `rootView()` that creates a view.
+The first Router is instantiated in our window group with it's view like so:
+
+```
+AppRouterView(router: AppRouter(services: AppServices()))
+```
 
 We create views that we call *Screens*. A screen is a SwiftUI View that represents the whole screen. A screen has a protocol for it's own router, that any router implements in order to provide a screen with other views, or to change navigation or flow.
 

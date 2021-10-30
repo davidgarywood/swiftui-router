@@ -8,18 +8,9 @@
 import Foundation
 import SwiftUI
 
-class TabRouter: Router {
-        
+class TabRouter: ObservableObject {        
     // MARK: - Private vars    
     private var services: Services
-
-    lazy private var accountRouter: AccountRouter = {
-        return AccountRouter(services: self.services)
-    }()
-
-    lazy private var onboardingRouter: HelpRouter = {
-        return HelpRouter(services: self.services)
-    }()
         
     // MARK: - Initialization
     init(services: Services) {
@@ -32,24 +23,17 @@ class TabRouter: Router {
     }
     
     // MARK: - Methods
-    @ViewBuilder func rootView() -> some View {
-        TabRouterView(router: self)
-    }
-    
     @ViewBuilder func home() -> some View {
-        let viewModel = HomeScreenViewModel(services: self.services)
-        let view = HomeScreen(router: self, viewModel: viewModel)
-        view
+        HomeScreen(router: self, viewModel: HomeScreenViewModel(services: self.services))
     }
     
     @ViewBuilder func onboarding() -> some View {
-        self.onboardingRouter.rootView()
+        HelpRouterView(router: HelpRouter(services: self.services))
     }
 
     @ViewBuilder func account() -> some View {
-        self.accountRouter.rootView()
+        AccountRouterView(router: AccountRouter(services: self.services))
     }
-
 }
 
 struct TabRouterView: View {

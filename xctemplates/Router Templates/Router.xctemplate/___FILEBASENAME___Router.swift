@@ -3,10 +3,8 @@
 import Foundation
 import SwiftUI
 
-class ___FILEBASENAMEASIDENTIFIER___: Router {
-    
+class ___FILEBASENAMEASIDENTIFIER___: ObservableObject {
     // MARK: - Published vars
-    // Put published vars here
     
     // MARK: - Private vars
     
@@ -21,11 +19,17 @@ class ___FILEBASENAMEASIDENTIFIER___: Router {
     
     // MARK: - Methods
     
-    func rootView() -> some View {
-        // Add your content here
+    @ViewBuilder func contentView() -> some View {
+        Text("Your content here")
+    }
+}
+
+struct ___FILEBASENAMEASIDENTIFIER___View: View {
+    @StateObject var router: ___FILEBASENAMEASIDENTIFIER___
+        
+    var body: some View {
         NavigationView {
-            Text("Hello Word")
+            self.router.contentView()
         }
     }
-    
 }
