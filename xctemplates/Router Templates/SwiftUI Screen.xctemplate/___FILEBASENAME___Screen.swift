@@ -8,7 +8,7 @@ protocol ___FILEBASENAMEASIDENTIFIER___Router: AnyObject {
 struct ___FILEBASENAMEASIDENTIFIER___: View {
     @State var router: ___FILEBASENAMEASIDENTIFIER___Router?
     
-    @ObservedObject var viewModel: ___VARIABLE_productName___ViewModel
+    @StateObject var viewModel: ___VARIABLE_productName___ViewModel
     
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
