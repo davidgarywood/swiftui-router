@@ -23,7 +23,7 @@ We start with a Router. It has responsibility for holding the application's depe
 The first Router is instantiated in our window group with it's view like so:
 
 ```
-AppRouterView(router: AppRouter(services: AppServices()))
+AppRouterView()
 ```
 
 We create views that we call *Screens*. A screen is a SwiftUI View that represents the whole screen. A screen has a protocol for it's own router, that any router implements in order to provide a screen with other views, or to change navigation or flow.
@@ -34,18 +34,13 @@ Routers can also observe ObservableObjects, and use their state changes to chang
 
 ## Router
 
-Represents a collection of screens.e
+Represents a collection of screens
 
-* Creating View Models
 * Creating Screens / Views
 * Creation of Navigation Views / Tab Views
 * Handing Sheet presentations
 * Managing view selection states
-* Reading state from dependencies if necessary
 * Creation of child routers, to navigate to or contain other collections of screens.
-
-## Services
-* A container for any dependencies that a view model may talk to.
 
 ## Screen
 * A SwiftUI view, with the simple responsibility of representing a single screen. 
@@ -62,9 +57,9 @@ Represents a collection of screens.e
 
 The example shows a login screen, which then opens up to a tab screen. We have routers for each area of flow in the app.
 
-In the example there is a 'god' struct called `Services`, which holds our dependencies. This means all ViewModels have access to all dependencies. Your mileage may vary, and it may make sense to atomise your dependencies and limit what your view models can access. I do tend to find this gives maximum flexibility.
+In the example there is an @Injectable PropertyWrapper which allows dependencies and global state to be imported via KeyPath to wherever they are needed. Dependencies are held in a static var in DependencyInjection.assembly, which effective gives us a singleton that can respond to whether we are in View Preview mode, or a real app. 
 
-The ViewModel has to play "pass the parcel" with any dependencies. This decoupling is on purpose. It gives us flexibility to connect view models to different things, and to avoid tightly coupled code in our views.
+The ViewModel has to play "pass the parcel" with any global state. This decoupling is on purpose. It gives us flexibility to connect view models to different things, and to avoid tightly coupled code in our views.
 
 # Installing the Xcode templates
 

@@ -12,7 +12,7 @@ protocol ProfileScreenRouter: AnyObject {
 
 struct ProfileScreen: View {
     @State var router: ProfileScreenRouter?
-    @StateObject var viewModel: ProfileScreenViewModel
+    @StateObject var viewModel: ProfileScreenViewModel = ProfileScreenViewModel()
     
     var body: some View {
         VStack {
@@ -28,6 +28,6 @@ struct ProfileScreen: View {
 
 struct ProfileScreenPreviews: PreviewProvider {
     static var previews: some View {
-        ProfileScreen(viewModel: ProfileScreenViewModel(services: MockServices()))
+        ProfileScreen()
     }
 }

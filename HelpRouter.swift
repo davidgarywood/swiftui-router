@@ -10,11 +10,9 @@ import SwiftUI
 
 class HelpRouter: ObservableObject {    
     // MARK: - Private vars
-    private var services: Services
         
     // MARK: - Initialization
-    init(services: Services) {
-        self.services = services
+    init() {
         Logger.print("init:\(#file)")
     }
     
@@ -28,12 +26,12 @@ class HelpRouter: ObservableObject {
     }
         
     internal func presentedOnboarding() {
-        self.services.defaultsManager.setDefault(.hasPresentedOnboarding, value: true)
-    }    
+        AppDefaults.hasPresentedOnboarding.set(true)
+    }
 }
 
 struct HelpRouterView: View {
-    @StateObject var router: HelpRouter
+    @StateObject var router: HelpRouter = HelpRouter()
     
     var body: some View {
         NavigationView {

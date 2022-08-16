@@ -7,33 +7,24 @@
 
 import Foundation
 import SwiftUI
-import Combine
 
 enum AppRouterScreen {
     case login
     case tab
 }
 
-class AppRouter: ObservableObject {    
+class AppRouter: ObservableObject {
+    // MARK: - Injected vars
+    @Injected(\.appState.loginState) var loginState
+    
     // MARK: - Published vars
     @Published var screen: AppRouterScreen = .login
     
     // MARK: - Private vars
-    private var services: Services
-
-    private var anyCancellables = Set<AnyCancellable>()
-    
-    lazy private var loginRouter: LoginRouter = {
-        return LoginRouter(services: self.services)
-    }()
-
-    lazy private var tabRouter: TabRouter = {
-        return TabRouter(services: self.services)
-    }()
+    private var cancellables = TaskCancellable()
     
     // MARK: - Initialization
-    init(services: Services) {
-        self.services = services
+    init() {
         Logger.print("init:\(#file)")
 
         self.setBindings()
@@ -44,27 +35,35 @@ class AppRouter: ObservableObject {
     }
     
     func setBindings() {
-        self.services.loginManager.state.$loggedIn.sink { [weak self] (value) in
-            if value == true {
-                self?.screen = .tab
-            } else {
-                self?.screen = .login
+        self.cancellables.addTask {
+            Task { [unowned self] in
+                for await loggedIn in self.loginState.$loggedIn.values {
+                    await self.updateScreen(loggedIn: loggedIn)
+                }
             }
-        }.store(in: &self.anyCancellables)
+        }
+    }
+    
+    @MainActor func updateScreen(loggedIn: Bool) async {
+        if loggedIn == true {
+            self.screen = .tab
+        } else {
+            self.screen = .login
+        }
     }
     
     // MARK: - Methods
     @ViewBuilder func loginScreen() -> some View {
-        LoginRouterView(router: LoginRouter(services: self.services))
+        LoginRouterView()
     }
     
     @ViewBuilder func tabScreen() -> some View {
-        TabRouterView(router: TabRouter(services: self.services))
+        TabRouterView()
     }
 }
 
 struct AppRouterView: View {
-    @StateObject var router: AppRouter
+    @StateObject var router: AppRouter = AppRouter()
     
     var body: some View {
         switch self.router.screen {

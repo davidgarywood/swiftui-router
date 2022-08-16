@@ -6,10 +6,8 @@
 //
 
 import Foundation
-import Combine
 
 public protocol LoginManager {
-    var state: LoginState { get }
     func logIn()
     func logOut()
 }
@@ -20,29 +18,29 @@ public class LoginState: ObservableObject {
 }
 
 class AppLoginManager: LoginManager {
-    public var state: LoginState = LoginState()
+    private var state: LoginState
     
-    private var defaultsManager: DefaultsManager
-    
-    init(defaultsManager: DefaultsManager) {
-        self.defaultsManager = defaultsManager
-        
+    init(loginState: LoginState) {
+        self.state = loginState
         self.setupValues()
     }
     
     private func setupValues() {
-        self.state.loggedIn = self.defaultsManager.getDefault(.loggedIn)
-        self.state.userName = self.defaultsManager.getDefault(.userName)
+        self.state.loggedIn = AppDefaults.loggedIn.get()
+        self.state.userName = AppDefaults.userName.get()
     }
-    
+
     public func logIn() {
         // Simulate talking to an API with a 1 second delay, for the demo
+        
+        let testUserName = "David"
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) { [weak self] in
             self?.state.loggedIn = true
-            self?.state.userName = "David"
-            
-            self?.defaultsManager.setDefault(.loggedIn, value: true)
-            self?.defaultsManager.setDefault(.userName, value: "David")
+            self?.state.userName = testUserName
+
+            AppDefaults.loggedIn.set(true)
+            AppDefaults.userName.set(testUserName)
         }
     }
     
@@ -50,7 +48,8 @@ class AppLoginManager: LoginManager {
         self.state.loggedIn = false
         self.state.userName = nil
         
-        self.defaultsManager.setDefault(.loggedIn, value: true)
+        AppDefaults.loggedIn.set(false)
+        AppDefaults.userName.set(nil)
     }
     
 }
@@ -68,6 +67,5 @@ class MockLoginManager: LoginManager {
 
     func logOut() {
         self.didLogOut = true
-    }
-    
+    }    
 }

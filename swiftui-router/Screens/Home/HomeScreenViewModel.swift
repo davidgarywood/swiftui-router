@@ -6,12 +6,10 @@
 //
 
 import Foundation
-import Combine
 
-class HomeScreenViewModel: BaseViewModel<Services>, ObservableObject {
-    
-    override init(services: Services) {
-        super.init(services: services)
+class HomeScreenViewModel: ObservableObject {
+
+    init() {
         Logger.print("init:\(#file)")
     }
     

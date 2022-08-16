@@ -6,13 +6,13 @@
 //
 
 import Foundation
-import Combine
 
-class ProfileScreenViewModel: BaseViewModel<Services>, ObservableObject {
+class ProfileScreenViewModel: ObservableObject {
+    @Injected(\.appState.loginState) var loginState
+    
     @Published var userName: String = ""
     
-    override init(services: Services) {
-        super.init(services: services)
+    init() {
         Logger.print("init:\(#file)")
         
         self.setup()
@@ -23,6 +23,6 @@ class ProfileScreenViewModel: BaseViewModel<Services>, ObservableObject {
     }
 
     private func setup() {
-        self.userName = self.services.loginManager.state.userName ?? "Unknown"
+        self.userName = self.loginState.userName ?? "Unknown"
     }
 }

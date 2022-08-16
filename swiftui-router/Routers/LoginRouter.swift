@@ -13,18 +13,11 @@ class LoginRouter: ObservableObject {
     @Published var showOnboarding: Bool = false
     
     // MARK: - Private vars
-    lazy private var onboardingRouter: HelpRouter = {
-        return HelpRouter(services: self.services)
-    }()
-    
-    private var services: Services
         
     // MARK: - Initialization
-    init(services: Services) {
+    init() {
         Logger.print("init:\(#file)")
-
-        self.services = services
-        self.showOnboarding = !self.services.defaultsManager.getDefault(.hasPresentedOnboarding)
+        self.showOnboarding = !AppDefaults.hasPresentedOnboarding.get()
     }
     
     deinit {
@@ -33,16 +26,16 @@ class LoginRouter: ObservableObject {
     
     // MARK: - Methods
     @ViewBuilder func loginScreen() -> some View {
-        LoginScreen(router: self, viewModel: LoginScreenViewModel(services: self.services))
+        LoginScreen(router: self)
     }
     
     @ViewBuilder func onboardingScreen() -> some View {
-        HelpRouterView(router: HelpRouter(services: self.services))
+        HelpRouterView()
     }
 }
 
 struct LoginRouterView: View {
-    @StateObject var router: LoginRouter
+    @StateObject var router: LoginRouter = LoginRouter()
     
     var body: some View {
         NavigationView {

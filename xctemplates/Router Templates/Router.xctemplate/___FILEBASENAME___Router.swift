@@ -25,7 +25,7 @@ class ___FILEBASENAMEASIDENTIFIER___: ObservableObject {
 }
 
 struct ___FILEBASENAMEASIDENTIFIER___View: View {
-    @StateObject var router: ___FILEBASENAMEASIDENTIFIER___
+    @StateObject var router: ___FILEBASENAMEASIDENTIFIER___ = ___FILEBASENAMEASIDENTIFIER___()
         
     var body: some View {
         NavigationView {
