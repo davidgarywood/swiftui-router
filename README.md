@@ -44,7 +44,7 @@ Represents a collection of screens
 
 ## Screen
 * A SwiftUI view, with the simple responsibility of representing a single screen. 
-* If the view becomes large, content should be split into sub-views, these should be simple views without view models or state, that the screen gives state to from it's view model.
+* If the view becomes large, content should be split into sub-views, these should be simple views without view models or state, that the screen gives state to.
 * Send user input to the view model to change state
 * Talks to it's Router to change the view (e.g. with a navigation link)
 * Receives views from it's Router
@@ -57,7 +57,9 @@ Represents a collection of screens
 
 The example shows a login screen, which then opens up to a tab screen. We have routers for each area of flow in the app.
 
-In the example there is an @Injectable PropertyWrapper which allows dependencies and global state to be imported via KeyPath to wherever they are needed. Dependencies are held in a static var in DependencyInjection.assembly, which effective gives us a singleton that can respond to whether we are in View Preview mode, or a real app. 
+In the example there is an `@Injectable` PropertyWrapper which allows dependencies and global state to be imported via KeyPath to wherever they are needed.
+
+Dependencies are held in the `assembly` static var in `DependencyInjection`. This is effectively behaving as a singleton. I've provided an example of swapping the dependencies based on whether we're in View Preview mode in the Xcode canvas, or running in a real version of the app. 
 
 The ViewModel has to play "pass the parcel" with any global state. This decoupling is on purpose. It gives us flexibility to connect view models to different things, and to avoid tightly coupled code in our views.
 
