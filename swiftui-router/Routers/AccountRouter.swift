@@ -8,13 +8,11 @@
 import Foundation
 import SwiftUI
 
-class AccountRouter {
+class AccountRouter: ObservableObject {
     // MARK: - Private vars
-    private var services: Services
         
     // MARK: - Initialization
-    init(services: Services) {
-        self.services = services
+    init() {
         Logger.print("init:\(#file)")
     }
     
@@ -24,12 +22,12 @@ class AccountRouter {
     
     // MARK: - Methods    
     @ViewBuilder func accountView() -> some View {
-        AccountScreen(router: self, viewModel: AccountScreenViewModel(services: self.services))
+        AccountScreen(router: self)
     }
 }
 
 struct AccountRouterView: View {
-    var router: AccountRouter
+    @StateObject var router: AccountRouter = AccountRouter()
     
     var body: some View {        
         NavigationView {
@@ -42,7 +40,7 @@ struct AccountRouterView: View {
 
 extension AccountRouter: AccountScreenRouter {
     @ViewBuilder func accountScreenProfileScreen() -> ProfileScreen {
-        ProfileScreen(router: self, viewModel: ProfileScreenViewModel(services: self.services))
+        ProfileScreen(router: self)
     }
 }
 

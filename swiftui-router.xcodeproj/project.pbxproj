@@ -22,12 +22,13 @@
 		55A2FB74263CCA5400AEC5FF /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A2FB73263CCA5400AEC5FF /* LoginManager.swift */; };
 		55A2FB79263CCCA800AEC5FF /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A2FB77263CCCA800AEC5FF /* LoginScreen.swift */; };
 		55A2FB7A263CCCA800AEC5FF /* LoginScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A2FB78263CCCA800AEC5FF /* LoginScreenViewModel.swift */; };
-		55D86E102636729600AE01AD /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D86E0F2636729600AE01AD /* ViewModel.swift */; };
 		55E50C0B26334CFE00EA63FD /* RouterTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E50C0A26334CFE00EA63FD /* RouterTestApp.swift */; };
 		55E50C0F26334CFF00EA63FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55E50C0E26334CFF00EA63FD /* Assets.xcassets */; };
 		55E50C1226334CFF00EA63FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55E50C1126334CFF00EA63FD /* Preview Assets.xcassets */; };
-		55E50C25263354EC00EA63FD /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E50C24263354EC00EA63FD /* Services.swift */; };
-		C651E75A2654A2B900F11013 /* DefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651E7592654A2B900F11013 /* DefaultsManager.swift */; };
+		55F9734628AB713C005CDEDD /* TaskCancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F9734528AB713C005CDEDD /* TaskCancellable.swift */; };
+		55F9734828AB716F005CDEDD /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F9734728AB716F005CDEDD /* Injected.swift */; };
+		55F9734A28AB7190005CDEDD /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F9734928AB7190005CDEDD /* DependencyInjection.swift */; };
+		C651E75A2654A2B900F11013 /* AppDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C651E7592654A2B900F11013 /* AppDefaults.swift */; };
 		C685806C26A25EA700471492 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C685806B26A25EA700471492 /* Logger.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,14 +48,15 @@
 		55A2FB73263CCA5400AEC5FF /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		55A2FB77263CCCA800AEC5FF /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		55A2FB78263CCCA800AEC5FF /* LoginScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewModel.swift; sourceTree = "<group>"; };
-		55D86E0F2636729600AE01AD /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		55E50C0726334CFE00EA63FD /* Router.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Router.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E50C0A26334CFE00EA63FD /* RouterTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTestApp.swift; sourceTree = "<group>"; };
 		55E50C0E26334CFF00EA63FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55E50C1126334CFF00EA63FD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		55E50C1326334CFF00EA63FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55E50C24263354EC00EA63FD /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
-		C651E7592654A2B900F11013 /* DefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsManager.swift; sourceTree = "<group>"; };
+		55F9734528AB713C005CDEDD /* TaskCancellable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCancellable.swift; sourceTree = "<group>"; };
+		55F9734728AB716F005CDEDD /* Injected.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
+		55F9734928AB7190005CDEDD /* DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjection.swift; sourceTree = "<group>"; };
+		C651E7592654A2B900F11013 /* AppDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDefaults.swift; sourceTree = "<group>"; };
 		C685806B26A25EA700471492 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,9 +133,11 @@
 		55BE62B9263C8FDD0081E1DA /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				55E50C24263354EC00EA63FD /* Services.swift */,
+				55F9734928AB7190005CDEDD /* DependencyInjection.swift */,
+				55F9734728AB716F005CDEDD /* Injected.swift */,
 				55A2FB73263CCA5400AEC5FF /* LoginManager.swift */,
-				C651E7592654A2B900F11013 /* DefaultsManager.swift */,
+				C651E7592654A2B900F11013 /* AppDefaults.swift */,
+				55F9734528AB713C005CDEDD /* TaskCancellable.swift */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -142,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				C685806B26A25EA700471492 /* Logger.swift */,
-				55D86E0F2636729600AE01AD /* ViewModel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -259,19 +262,20 @@
 			files = (
 				553979DB263CDC1500120EE5 /* AccountRouter.swift in Sources */,
 				55397A0A263CE2E800120EE5 /* HomeScreenViewModel.swift in Sources */,
-				55E50C25263354EC00EA63FD /* Services.swift in Sources */,
 				55397A11263CE3F000120EE5 /* ProfileScreen.swift in Sources */,
 				553979D4263CD92000120EE5 /* HelpRouter.swift in Sources */,
+				55F9734A28AB7190005CDEDD /* DependencyInjection.swift in Sources */,
 				55E50C0B26334CFE00EA63FD /* RouterTestApp.swift in Sources */,
 				55A2FB74263CCA5400AEC5FF /* LoginManager.swift in Sources */,
 				553979CC263CD8AA00120EE5 /* TabRouter.swift in Sources */,
 				553979BA263CCFD000120EE5 /* AppRouter.swift in Sources */,
-				C651E75A2654A2B900F11013 /* DefaultsManager.swift in Sources */,
-				55D86E102636729600AE01AD /* ViewModel.swift in Sources */,
+				55F9734628AB713C005CDEDD /* TaskCancellable.swift in Sources */,
+				C651E75A2654A2B900F11013 /* AppDefaults.swift in Sources */,
 				55A2FB79263CCCA800AEC5FF /* LoginScreen.swift in Sources */,
 				55397A12263CE3F000120EE5 /* ProfileScreenViewModel.swift in Sources */,
 				553979F7263CDD9A00120EE5 /* AccountScreen.swift in Sources */,
 				C685806C26A25EA700471492 /* Logger.swift in Sources */,
+				55F9734828AB716F005CDEDD /* Injected.swift in Sources */,
 				55397A09263CE2E800120EE5 /* HomeScreen.swift in Sources */,
 				553979F8263CDD9A00120EE5 /* AccountScreenViewModel.swift in Sources */,
 				553979C9263CD88300120EE5 /* LoginRouter.swift in Sources */,
@@ -405,15 +409,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"swiftui-router/Preview Content\"";
-				DEVELOPMENT_TEAM = 673AN8Q6T5;
+				DEVELOPMENT_TEAM = AY32NZUWTJ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "swiftui-router/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.roboheadz.swiftui-router";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lightbeamapps.swiftui-router";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -427,15 +431,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"swiftui-router/Preview Content\"";
-				DEVELOPMENT_TEAM = 673AN8Q6T5;
+				DEVELOPMENT_TEAM = AY32NZUWTJ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "swiftui-router/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.roboheadz.swiftui-router";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lightbeamapps.swiftui-router";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

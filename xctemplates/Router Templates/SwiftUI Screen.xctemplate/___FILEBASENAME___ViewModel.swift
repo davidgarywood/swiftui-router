@@ -3,6 +3,6 @@
 import Foundation
 import Combine
 
-class ___FILEBASENAMEASIDENTIFIER___: BaseViewModel<Services>, ObservableObject {
+class ___FILEBASENAMEASIDENTIFIER___: ObservableObject {
     
 }

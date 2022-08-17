@@ -12,7 +12,7 @@ protocol HomeScreenRouter: AnyObject {
 
 struct HomeScreen: View {
     @State var router: HomeScreenRouter?    
-    @StateObject var viewModel: HomeScreenViewModel
+    @StateObject var viewModel: HomeScreenViewModel = HomeScreenViewModel()
     
     var body: some View {
         Text("Home")
@@ -21,6 +21,6 @@ struct HomeScreen: View {
 
 struct HomeScreenPreviews: PreviewProvider {
     static var previews: some View {
-        HomeScreen(viewModel: HomeScreenViewModel(services: MockServices()))
+        HomeScreen()
     }
 }

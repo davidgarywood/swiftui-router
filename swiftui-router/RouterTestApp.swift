@@ -12,7 +12,7 @@ struct RouterTestApp: App {
     
     var body: some Scene {
         WindowGroup {
-            AppRouterView(router: AppRouter(services: AppServices()))
+            AppRouterView()
         }
     }
 }

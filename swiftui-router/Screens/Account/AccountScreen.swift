@@ -12,13 +12,13 @@ protocol AccountScreenRouter: AnyObject {
 }
 
 struct AccountScreen: View {
-    @State var router: AccountScreenRouter    
-    @StateObject var viewModel: AccountScreenViewModel
+    @State var router: AccountScreenRouter?
+    @StateObject var viewModel: AccountScreenViewModel = AccountScreenViewModel()
     
     var body: some View {
         VStack {
             List {
-                NavigationLink(destination: self.router.accountScreenProfileScreen()) {
+                NavigationLink(destination: self.router?.accountScreenProfileScreen()) {
                     Text("User Profile")
                 }
             }.listStyle(PlainListStyle())
@@ -35,6 +35,6 @@ struct AccountScreen: View {
 
 struct AccountScreenPreviews: PreviewProvider {
     static var previews: some View {
-        AccountScreen(router: AccountRouter(services: MockServices()), viewModel: AccountScreenViewModel(services: MockServices()))
+        AccountScreen(router: AccountRouter())
     }
 }

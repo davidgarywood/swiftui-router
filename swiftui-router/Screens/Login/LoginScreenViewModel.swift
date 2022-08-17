@@ -6,13 +6,13 @@
 //
 
 import Foundation
-import Combine
 
-class LoginScreenViewModel: BaseViewModel<Services>, ObservableObject {
+class LoginScreenViewModel: ObservableObject {
+    @Injected(\.loginManager) var loginManager
+    
     @Published var loggingIn: Bool = false
     
-    override init(services: Services) {
-        super.init(services: services)
+    init() {
         Logger.print("init:\(#file)")
     }
     
@@ -21,7 +21,7 @@ class LoginScreenViewModel: BaseViewModel<Services>, ObservableObject {
     }
     
     func logIn() {
-        self.services.loginManager.logIn()
+        self.loginManager.logIn()
         self.loggingIn = true
     }
     

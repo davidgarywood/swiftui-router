@@ -12,7 +12,7 @@ protocol LoginScreenViewRouter: AnyObject {
 
 struct LoginScreen: View {
     @State var router: LoginScreenViewRouter?    
-    @StateObject var viewModel: LoginScreenViewModel
+    @StateObject var viewModel: LoginScreenViewModel = LoginScreenViewModel()
     
     var body: some View {
         ZStack {
@@ -37,6 +37,6 @@ struct LoginScreen: View {
 
 struct LoginScreenViewPreviews: PreviewProvider {
     static var previews: some View {
-        LoginScreen(viewModel: LoginScreenViewModel(services: MockServices()))
+        LoginScreen()
     }
 }

@@ -6,12 +6,12 @@
 //
 
 import Foundation
-import Combine
 
-class AccountScreenViewModel: BaseViewModel<Services>, ObservableObject {
+class AccountScreenViewModel: ObservableObject {
+    @Injected(\.loginManager) var loginManager
     
-    override init(services: Services) {
-        super.init(services: services)
+    
+    init() {
         Logger.print("init:\(#file)")
     }
     
@@ -20,7 +20,7 @@ class AccountScreenViewModel: BaseViewModel<Services>, ObservableObject {
     }
     
     func logout() {
-        self.services.loginManager.logOut()
+        self.loginManager.logOut()
     }
     
 }

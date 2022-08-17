@@ -8,13 +8,19 @@
 import Foundation
 import SwiftUI
 
-class TabRouter: ObservableObject {        
-    // MARK: - Private vars    
-    private var services: Services
-        
+enum TabType: Hashable {
+    case help
+    case home
+    case account
+}
+
+class TabRouter: ObservableObject {
+    
+    // MARK: - Published vars
+    @Published var selectedTab: TabType = .home
+    
     // MARK: - Initialization
-    init(services: Services) {
-        self.services = services
+    init() {
         Logger.print("init:\(#file)")
     }
     
@@ -24,41 +30,43 @@ class TabRouter: ObservableObject {
     
     // MARK: - Methods
     @ViewBuilder func home() -> some View {
-        HomeScreen(router: self, viewModel: HomeScreenViewModel(services: self.services))
+        HomeScreen(router: self)
     }
     
-    @ViewBuilder func onboarding() -> some View {
-        HelpRouterView(router: HelpRouter(services: self.services))
+    @ViewBuilder func help() -> some View {
+        HelpRouterView()
     }
 
     @ViewBuilder func account() -> some View {
-        AccountRouterView(router: AccountRouter(services: self.services))
+        AccountRouterView()
     }
 }
 
 struct TabRouterView: View {
-    @StateObject var router: TabRouter
+    @StateObject var router: TabRouter = TabRouter()
     
     var body: some View {
-        TabView {
-            self.router.onboarding()
+        TabView(selection: self.$router.selectedTab) {
+            self.router.help()
                 .tabItem {
                     Label("Help", systemImage: "questionmark.circle.fill")
                 }
+                .tag(TabType.help)
 
             self.router.home()
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
-            
+                .tag(TabType.home)
+
             self.router.account()
                 .tabItem {
                     Label("Account", systemImage: "person.fill")
                 }
+                .tag(TabType.account)
         }
     }
 }
 
 extension TabRouter: HomeScreenRouter {
-    
 }
